@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap3-wysihtml5.min.css">
+    <script src="js/jquery-1.12.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-maxlength.js"></script>
+    <script src="js/bootstrap3-wysihtml5.all.min.js"></script>
+    <style>
+        textarea{
+            height: 100%;
+            width: 100%;
+            -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+            -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+            box-sizing: border-box;         /* Opera/IE 8+ */
+        }
+        .dictionary {
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">Translation tool</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav">
+                    <li class="uinav active" id="li_jobs"><a href="#jobs" onclick="select_page('jobs')">Jobs</a></li>
+                    <li class="uinav" id="li_translation"><a href="#translation" onclick="select_page('translation')">Translation</a></li>
+                    <li class="uinav" id="li_dictionary"><a href="#dictionary" onclick="select_page('dictionary')">Dictionary</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+    <div style="padding-top: 60px;">
+
+    <div class="container uipage" id="jobs">
+        <h3>Jobs list</h3>
+    </div>
+
+    <div class="container uipage hidden" id="dictionary">
+        <h3>Dictionary</h3>
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for...">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Search</button>
+              </span>
+        </div><!-- /input-group -->
+        <hr />
+        <div class="container">
+            <div class="row dictionary">
+                <div class="col-md-5">English Text</div>
+                <div class="col-md-6">Translation into Italian</div>
+                <div class="col-md-1"><button class="btn btn-success btn-sm">Copy</button></div>
+            </div>
+            <div class="row dictionary">
+                <div class="col-md-5">English Text</div>
+                <div class="col-md-6">Translation into Italian</div>
+                <div class="col-md-1"><button class="btn btn-success btn-sm">Copy</button></div>
+            </div>
+            <div class="row dictionary">
+                <div class="col-md-5">English Text</div>
+                <div class="col-md-6">Translation into Italian</div>
+                <div class="col-md-1"><button class="btn btn-success btn-sm">Copy</button></div>
+            </div>
+            <div class="row dictionary">
+                <div class="col-md-5">English Text</div>
+                <div class="col-md-6">Translation into Italian</div>
+                <div class="col-md-1"><button class="btn btn-success btn-sm">Copy</button></div>
+            </div>
+            <div class="row dictionary">
+                <div class="col-md-5">English Text</div>
+                <div class="col-md-6">Translation into Italian</div>
+                <div class="col-md-1"><button class="btn btn-success btn-sm">Copy</button></div>
+            </div>
+            <div class="row dictionary">
+                <div class="col-md-5">English Text</div>
+                <div class="col-md-6">Translation into Italian</div>
+                <div class="col-md-1"><button class="btn btn-success btn-sm">Copy</button></div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="container uipage hidden" id="translation">
+
+        <div class="row">
+            <div class="col-md-6">
+
+            <nav>
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            </div>
+            <div class="col-md-6"></div>
+        </div>
+        <div class="row">
+            <h4>Title</h4>
+            <div class="col-md-6">
+
+                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit
+            </div>
+            <div class="col-md-6">
+                <textarea maxlength="60"></textarea>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <h4>Short Description</h4>
+            <div class="col-md-6">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ante leo, mattis ut porttitor non, ultricies et leo. Aliquam mollis sit amet tellus at sagittis. Integer sapien neque, ultrices nec odio et, semper faucibus sem. Pellentesque finibus, turpis commodo gravida aliquam, tellus neque vehicula arcu, lacinia ultricies nibh ipsum non magna. Proin auctor feugiat augue, sit amet fringilla ipsum euismod vel. Donec placerat felis nisl, ut tempor elit consectetur ac. Quisque efficitur mattis diam, at fringilla sem. Duis dignissim ultrices ipsum id vehicula. Quisque sodales consectetur lorem eu consectetur. Pellentesque at libero semper, volutpat dolor ac, blandit urna.
+            </div>
+            <div class="col-md-6">
+                <textarea maxlength="220"></textarea>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <h4>Main Text</h4>
+            <div class="col-md-6">
+                <mark><a href="#" rel="popover" style="text-decorations:none; color:inherit;" data-popover-content="#myPopover">Sed sit amet consectetur est.</a></mark> Aliquam sapien mauris, pulvinar at leo sit amet, scelerisque euismod mauris. Morbi feugiat orci eu elementum ultrices. Cras ultricies, justo eu pellentesque dictum, eros eros gravida lectus, vel pretium augue lectus pharetra nisi. Vivamus tincidunt bibendum quam, ac egestas turpis tempor quis. Nam eleifend nibh eu est euismod vestibulum. Nunc id cursus magna. Proin varius pharetra sollicitudin. Suspendisse et posuere turpis, at dignissim ante. Sed in lobortis risus. Etiam imperdiet ullamcorper porttitor. Quisque facilisis mattis euismod. Nullam fermentum nisi ac rhoncus accumsan.
+                <br /><br />
+                Nulla aliquet tincidunt sapien, a tempus risus volutpat eget. Etiam auctor diam mi, porttitor accumsan dui egestas egestas. In at est vitae libero dapibus fermentum eget eu ante. Curabitur ex ante, dapibus id lacinia quis, mattis non diam. Maecenas sollicitudin sit amet massa a efficitur. Donec eget nulla risus. Integer ut libero feugiat, suscipit neque non, iaculis lorem. Nunc urna turpis, scelerisque vitae lacus eget, venenatis porttitor odio. In hac habitasse platea dictumst.
+                <br /><br />
+                Sed porta malesuada ex eget varius. In molestie nibh mi, eu tincidunt nisi efficitur sit amet. Nullam tincidunt massa vitae arcu tincidunt suscipit. Suspendisse cursus, purus id placerat interdum, mauris dolor eleifend nulla, sit amet elementum dolor tellus quis orci. Ut interdum condimentum mattis. Phasellus sagittis lectus nulla, sit amet suscipit nulla varius sit amet. Nulla faucibus dolor suscipit, volutpat quam ac, fringilla purus. In at euismod mauris, quis varius lorem. Integer ullamcorper tristique nisl, eu finibus neque commodo in. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque ac interdum arcu, sed venenatis elit. Mauris euismod convallis lectus ac volutpat. Nunc odio tortor, faucibus ac massa at, euismod mattis eros. Proin luctus lorem ante, vel tincidunt diam tempor et.
+                <br /><br />
+                Cras lobortis mollis erat. Etiam consequat ut erat id porta. Integer feugiat at felis in pellentesque. Maecenas at lacus nec justo porta imperdiet ac eget tortor. Nulla suscipit, arcu ac pretium aliquet, tellus dui iaculis leo, vel sollicitudin est dolor a augue. Vivamus cursus turpis vitae viverra tristique. Ut eu sapien a lorem venenatis interdum. Duis in sagittis nisi, id aliquam ante. Etiam egestas metus ac condimentum tempus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus condimentum quis mi ut condimentum. Morbi commodo risus at hendrerit porta. Phasellus scelerisque ipsum dolor, eu varius erat mollis molestie. Vivamus vel tortor ante. Mauris sed mi suscipit enim imperdiet rutrum.
+            </div>
+            <div class="col-md-6">
+                <textarea maxlength="600" rows="20"></textarea>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <h4>Ending</h4>
+            <div class="col-md-6">
+                Praesent sodales orci magna, et bibendum lacus pellentesque vel. Curabitur ut mi viverra, auctor quam ut, aliquet est. Aliquam accumsan lectus vitae sem vehicula tempus sed nec nisi. Proin ultrices et urna vestibulum finibus. In vel purus pulvinar, facilisis magna vel, viverra arcu. Donec fringilla quis mauris at pharetra. Ut ac mollis est. Suspendisse congue tincidunt nibh, nec mollis nisi egestas eu. Pellentesque lacinia risus ac vulputate blandit. Vivamus et nunc sed ipsum pretium mattis at elementum mauris. Duis non quam ac lorem bibendum tristique.
+                <br /><br />
+                Maecenas eu tristique ex. Suspendisse maximus purus vitae justo egestas, dapibus pharetra turpis scelerisque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc et neque placerat, sodales libero a, rhoncus leo. Proin nec vehicula mi, vitae lacinia quam. Vestibulum feugiat augue vehicula risus facilisis convallis. Vivamus velit mi, interdum in est a, tincidunt eleifend libero. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent placerat iaculis quam ac scelerisque.
+            </div>
+            <div class="col-md-6">
+                <textarea maxlength="300" rows="10"></textarea>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-6">
+            <nav>
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            </div>
+            <div class="col-md-6">
+                <button class="btn btn-success btn-lg pull-right">Submit Job</button>
+            </div>
+        </div>
+
+        <div id="myPopover" class="hide">
+            Choose a translation:
+            <ul class="list-group">
+                <li class="list-group-item">The field counter can be positioned at the top, bottom, left or right.</li>
+                <li class="list-group-item">The field counter can be positioned at the top, bottom, left or right.</li>
+                <li class="list-group-item">The field counter can be positioned at the top, bottom, left or right.</li>
+            </ul>
+        </div>
+    </div>
+    </div>
+    <script>
+
+        function select_page(page) {
+            $('.uinav').removeClass('active');
+            $('#li_'+page).addClass('active');
+            $('.uipage').addClass('hidden');
+            $('#'+page).removeClass('hidden');
+            return false;
+        }
+
+//        $('textarea').wysihtml5({
+//            toolbar: {
+//                "font-styles": false, //Font styling, e.g. h1, h2, etc. Default true
+//                "emphasis": true, //Italics, bold, etc. Default true
+//                "lists": false, //(Un)ordered lists, e.g. Bullets, Numbers. Default true
+//                "html": false, //Button which allows you to edit the generated HTML. Default false
+//                "link": false, //Button to insert a link. Default true
+//                "image": false, //Button to insert an image. Default true,
+//                "color": false, //Button to change color of font
+//                "blockquote": false, //Blockquote
+//                "size": "sm" //default: none, other options are xs, sm, lg
+//        }});
+
+        $('textarea').maxlength({
+            alwaysShow: true,
+            placement: 'top-right'
+        });
+
+        // POPOVER
+        $(function(){
+            $('[rel="popover"]').popover({
+                container: 'body',
+                html: true,
+                content: function () {
+                    var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+                    return clone;
+                }
+            }).click(function(e) {
+                e.preventDefault();
+            });
+        });
+    </script>
+</body>
+</html>
