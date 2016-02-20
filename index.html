@@ -40,8 +40,8 @@
             </div>
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav">
-                    <li class="uinav active" id="li_jobs"><a href="#jobs" onclick="select_page('jobs')">Jobs</a></li>
-                    <li class="uinav" id="li_translation"><a href="#translation" onclick="select_page('translation')">Translation</a></li>
+                    <!--<li class="uinav" id="li_jobs"><a href="#jobs" onclick="select_page('jobs')">Jobs</a></li>-->
+                    <li class="uinav active" id="li_translation"><a href="#translation" onclick="select_page('translation')">Translation</a></li>
                     <li class="uinav" id="li_dictionary"><a href="#dictionary" onclick="select_page('dictionary')">Dictionary</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
@@ -49,9 +49,9 @@
     </nav>
     <div style="padding-top: 60px;">
 
-    <div class="container uipage" id="jobs">
-        <h3>Jobs list</h3>
-    </div>
+    <!--<div class="container uipage hidden" id="jobs">-->
+        <!--<h3>Jobs list</h3>-->
+    <!--</div>-->
 
     <div class="container uipage hidden" id="dictionary">
         <h3>Dictionary</h3>
@@ -98,7 +98,7 @@
 
     </div>
 
-    <div class="container uipage hidden" id="translation">
+    <div class="container uipage" id="translation">
 
         <div class="row">
             <div class="col-md-6">
@@ -110,7 +110,7 @@
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
-                    <li class="active"><a href="#">1</a></li>
+                    <li class="active"><a href="#">1<span class="page1_flags"></span></a></li>
                     <li><a href="#">2</a></li>
                     <li><a href="#">3</a></li>
                     <li><a href="#">4</a></li>
@@ -126,51 +126,131 @@
             <div class="col-md-6"></div>
         </div>
         <div class="row">
-            <h4>Title</h4>
-            <div class="col-md-6">
 
-                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit
+            <div class="col-md-6">
+                <h4>Name</h4>
+                Gatwick Express
             </div>
             <div class="col-md-6">
+                <div class="btn-toolbar" role="toolbar" aria-label="...">
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-default">B</button>
+                        <button class="btn btn-default">I</button>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-default" onclick="toggle_red_flag(this);"><span class="glyphicon glyphicon-flag"></span></button>
+                    </div>
+                </div>
                 <textarea maxlength="60"></textarea>
             </div>
         </div>
         <hr />
         <div class="row">
-            <h4>Short Description</h4>
             <div class="col-md-6">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ante leo, mattis ut porttitor non, ultricies et leo. Aliquam mollis sit amet tellus at sagittis. Integer sapien neque, ultrices nec odio et, semper faucibus sem. Pellentesque finibus, turpis commodo gravida aliquam, tellus neque vehicula arcu, lacinia ultricies nibh ipsum non magna. Proin auctor feugiat augue, sit amet fringilla ipsum euismod vel. Donec placerat felis nisl, ut tempor elit consectetur ac. Quisque efficitur mattis diam, at fringilla sem. Duis dignissim ultrices ipsum id vehicula. Quisque sodales consectetur lorem eu consectetur. Pellentesque at libero semper, volutpat dolor ac, blandit urna.
+                <h4>URL</h4>
+                gatwick-express
             </div>
             <div class="col-md-6">
-                <textarea maxlength="220"></textarea>
-            </div>
-        </div>
-        <hr />
-        <div class="row">
-            <h4>Main Text</h4>
-            <div class="col-md-6">
-                <mark><a href="#" rel="popover" style="text-decorations:none; color:inherit;" data-popover-content="#myPopover">Sed sit amet consectetur est.</a></mark> Aliquam sapien mauris, pulvinar at leo sit amet, scelerisque euismod mauris. Morbi feugiat orci eu elementum ultrices. Cras ultricies, justo eu pellentesque dictum, eros eros gravida lectus, vel pretium augue lectus pharetra nisi. Vivamus tincidunt bibendum quam, ac egestas turpis tempor quis. Nam eleifend nibh eu est euismod vestibulum. Nunc id cursus magna. Proin varius pharetra sollicitudin. Suspendisse et posuere turpis, at dignissim ante. Sed in lobortis risus. Etiam imperdiet ullamcorper porttitor. Quisque facilisis mattis euismod. Nullam fermentum nisi ac rhoncus accumsan.
-                <br /><br />
-                Nulla aliquet tincidunt sapien, a tempus risus volutpat eget. Etiam auctor diam mi, porttitor accumsan dui egestas egestas. In at est vitae libero dapibus fermentum eget eu ante. Curabitur ex ante, dapibus id lacinia quis, mattis non diam. Maecenas sollicitudin sit amet massa a efficitur. Donec eget nulla risus. Integer ut libero feugiat, suscipit neque non, iaculis lorem. Nunc urna turpis, scelerisque vitae lacus eget, venenatis porttitor odio. In hac habitasse platea dictumst.
-                <br /><br />
-                Sed porta malesuada ex eget varius. In molestie nibh mi, eu tincidunt nisi efficitur sit amet. Nullam tincidunt massa vitae arcu tincidunt suscipit. Suspendisse cursus, purus id placerat interdum, mauris dolor eleifend nulla, sit amet elementum dolor tellus quis orci. Ut interdum condimentum mattis. Phasellus sagittis lectus nulla, sit amet suscipit nulla varius sit amet. Nulla faucibus dolor suscipit, volutpat quam ac, fringilla purus. In at euismod mauris, quis varius lorem. Integer ullamcorper tristique nisl, eu finibus neque commodo in. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque ac interdum arcu, sed venenatis elit. Mauris euismod convallis lectus ac volutpat. Nunc odio tortor, faucibus ac massa at, euismod mattis eros. Proin luctus lorem ante, vel tincidunt diam tempor et.
-                <br /><br />
-                Cras lobortis mollis erat. Etiam consequat ut erat id porta. Integer feugiat at felis in pellentesque. Maecenas at lacus nec justo porta imperdiet ac eget tortor. Nulla suscipit, arcu ac pretium aliquet, tellus dui iaculis leo, vel sollicitudin est dolor a augue. Vivamus cursus turpis vitae viverra tristique. Ut eu sapien a lorem venenatis interdum. Duis in sagittis nisi, id aliquam ante. Etiam egestas metus ac condimentum tempus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus condimentum quis mi ut condimentum. Morbi commodo risus at hendrerit porta. Phasellus scelerisque ipsum dolor, eu varius erat mollis molestie. Vivamus vel tortor ante. Mauris sed mi suscipit enim imperdiet rutrum.
-            </div>
-            <div class="col-md-6">
-                <textarea maxlength="600" rows="20"></textarea>
+                <div class="btn-toolbar" role="toolbar" aria-label="...">
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-default">B</button>
+                        <button class="btn btn-default">I</button>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-default" onclick="toggle_red_flag(this);"><span class="glyphicon glyphicon-flag"></span></button>
+                    </div>
+                </div>
+                <textarea maxlength="60"></textarea>
             </div>
         </div>
         <hr />
         <div class="row">
-            <h4>Ending</h4>
             <div class="col-md-6">
-                Praesent sodales orci magna, et bibendum lacus pellentesque vel. Curabitur ut mi viverra, auctor quam ut, aliquet est. Aliquam accumsan lectus vitae sem vehicula tempus sed nec nisi. Proin ultrices et urna vestibulum finibus. In vel purus pulvinar, facilisis magna vel, viverra arcu. Donec fringilla quis mauris at pharetra. Ut ac mollis est. Suspendisse congue tincidunt nibh, nec mollis nisi egestas eu. Pellentesque lacinia risus ac vulputate blandit. Vivamus et nunc sed ipsum pretium mattis at elementum mauris. Duis non quam ac lorem bibendum tristique.
-                <br /><br />
-                Maecenas eu tristique ex. Suspendisse maximus purus vitae justo egestas, dapibus pharetra turpis scelerisque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc et neque placerat, sodales libero a, rhoncus leo. Proin nec vehicula mi, vitae lacinia quam. Vestibulum feugiat augue vehicula risus facilisis convallis. Vivamus velit mi, interdum in est a, tincidunt eleifend libero. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent placerat iaculis quam ac scelerisque.
+                <h4>Short Text</h4>
+                Travel to London City from Gatwick Airport with the Gatwick Express! Save time with prebooked tickets and jump directly on the train. The journey is only approx. 35 minutes.
             </div>
             <div class="col-md-6">
-                <textarea maxlength="300" rows="10"></textarea>
+                <div class="btn-toolbar" role="toolbar" aria-label="...">
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-default">B</button>
+                        <button class="btn btn-default">I</button>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-default" onclick="toggle_red_flag(this);"><span class="glyphicon glyphicon-flag"></span></button>
+                    </div>
+                </div>
+                <textarea maxlength="250"></textarea>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Long Text</h4>
+                Jump on the Gatwick Express and get into London fast and easy. You can choose to get a return or one-way ticket between Gatwick Airport and Victoria Station in London with the Gatwick Express. The journey takes approx. 35 min. It's easy and comfortable!
+                <br />
+                From Victoria Station in London you can easily take the tube, a bus or grab a cab to your end-destination, such as Piccadilly Circus, Trafalgar Square, Oxford Circus, Covent Garden, Russel Square or Paddington.
+                <br />
+                <mark><a href="#" rel="popover" style="text-decorations:none; color:inherit;" data-popover-content="#myPopover">Highlights</a></mark>:<br />
+                - Get your e-tickets directly into your mailbox within 2-3 days<br />
+                - Skip the line by the ticket machine at the station<br />
+                - The tickets can be used on any given day within a month<br />
+                - Children under 5 years old travel for free<br />
+                <br />
+                How do I book my tickets for the Gatwick Express?<br />
+                When you book your tickets pick the 'valid from' date as the date you will use the train tickets. If you book return tickets, the return journey back to Gatwick Airport has to be used within 28 days from the date you have chosen.<br />
+                <br />
+                You cannot book for today, as all tickets are issued manually, so please allow 2-3 days for your tickets to arrive via email.
+                <br />
+                How do I get my tickets?<br />
+                Shortly after your booking is complete, you will receive a confirmation by email. Your train tickets will be sent to you afterwards.
+                <br />
+                All train tickets are issued manually, therefor we cannot promise you will receive the tickets the same day as you order, it might take a few days. However, we promise you will receive your tickets well before you leave, and if you book close to the departure date, you will receive your tickets as soon as possible.
+                <br />
+                Are there children's tickets for the Gatwick Express?<br />
+                Yes, you can purchase children's tickets for the Gatwick Express. Children's tickets are available for children between age 5-15. Children under age 5 travel for free, when accompanied by a paying adult. (Max. 4 children can travel free each adult).<br />
+                <br />
+                Important information:<br />
+                - Please note: It is your responsibility to check the train timetable before your journey, especially the train times to and from the airport for flights that arrive or depart very early in the morning or late at night, or in case there is a limited service due to maintenance work, etc.<br />
+                - We are not able to refund (either partly or in full) for tickets that cannot be used if the train timetable does not fit in with your scheduled flight arrival or departure time. If trains are cancelled due to maintenance work etc. then there will always be a replacement bus service offered.<br />
+                - On bank holidays the Gatwick Express will not run as frequently as normal, and on December 25 the Gatwick Express doesn't run.<br />
+                - If you like you can book tickets for an alternative Gatwick Airport Train HERE!<br />
+                <br />
+                Maintenance work until January 2016:<br />
+                Extensive maintenance and line update works are scheduled from now until at least January 2016. Departure suspensions and reduction of services per hour might occure, mostly during nights and sometime weekends. If a service is not operating for longer periods, a replacement bus service will be in place. Please account for extra time mostly on your way to the airport.<br />
+                <br />
+                Staff are available at the stations to help you, so please ask them if you have any questions.<br />
+                <br />
+            </div>
+            <div class="col-md-6">
+                <div class="btn-toolbar" role="toolbar" aria-label="...">
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-default">B</button>
+                        <button class="btn btn-default">I</button>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-default" onclick="toggle_red_flag(this);"><span class="glyphicon glyphicon-flag"></span></button>
+                    </div>
+                </div>
+                <textarea maxlength="5000" rows="40"></textarea>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Meta Description</h4>
+                Travel from Gatwick Airport to London City with the Gatwick Express. Children under 5 travel for free. The journey only takes approx. 35 minutes!
+            </div>
+            <div class="col-md-6">
+                <div class="btn-toolbar" role="toolbar" aria-label="...">
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-default">B</button>
+                        <button class="btn btn-default">I</button>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-default" onclick="toggle_red_flag(this);"><span class="glyphicon glyphicon-flag"></span></button>
+                    </div>
+                </div>
+                <textarea maxlength="300" rows="5"></textarea>
             </div>
         </div>
         <hr />
@@ -183,7 +263,7 @@
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
-                    <li class="active"><a href="#">1</a></li>
+                    <li class="active"><a href="#">1<span class="page1_flags"></span></a></li>
                     <li><a href="#">2</a></li>
                     <li><a href="#">3</a></li>
                     <li><a href="#">4</a></li>
@@ -252,6 +332,23 @@
                 e.preventDefault();
             });
         });
+        var red_flags = 0;
+        function toggle_red_flag(button) {
+            if ($(button).hasClass('btn-danger')) {
+                $(button).removeClass('btn-danger');
+                red_flags = red_flags - 1;
+            } else {
+                $(button).addClass('btn-danger');
+                red_flags = red_flags + 1;
+            }
+            if (red_flags>0) {
+                // set the flags count
+                $(".page1_flags").html(' ('+red_flags+')');
+            } else {
+                $(".page1_flags").html('');
+            }
+        }
+
     </script>
 </body>
 </html>
