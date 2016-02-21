@@ -232,7 +232,7 @@
                 <br />
                 From Victoria Station in London you can easily take the tube, a bus or grab a cab to your end-destination, such as Piccadilly Circus, Trafalgar Square, Oxford Circus, Covent Garden, Russel Square or Paddington.
                 <br />
-                <mark><a href="#" rel="popover" style="text-decorations:none; color:inherit;" data-popover-content="#myPopover">Highlights</a></mark>:<br />
+                <mark><a rel="popover" data-toggle="popover" data-tr-id="1" style="text-decorations:none; color:inherit;" class="tr-popover">Highlights</a></mark>:<br />
                 - Get your e-tickets directly into your mailbox within 2-3 days<br />
                 - Skip the line by the ticket machine at the station<br />
                 - The tickets can be used on any given day within a month<br />
@@ -248,7 +248,7 @@
                 <br />
                 All train tickets are issued manually, therefor we cannot promise you will receive the tickets the same day as you order, it might take a few days. However, we promise you will receive your tickets well before you leave, and if you book close to the departure date, you will receive your tickets as soon as possible.
                 <br />
-                Are there children's tickets for the Gatwick Express?<br />
+                <mark><a rel="popover" data-toggle="popover" data-tr-id="2" style="text-decorations:none; color:inherit;" class="tr-popover">Are there children's tickets for the Gatwick Express?</a></mark><br />
                 Yes, you can purchase children's tickets for the Gatwick Express. Children's tickets are available for children between age 5-15. Children under age 5 travel for free, when accompanied by a paying adult. (Max. 4 children can travel free each adult).<br />
                 <br />
                 Important information:<br />
@@ -338,13 +338,15 @@
             </div>
         </div>
 
+        <!--Dictionary-->
         <div id="myPopover" class="hide">
             Choose a translation:
-            <ul class="list-group">
-                <li class="list-group-item" onclick="">Highlights</li>
+            <ul id="tr_list" class="list-group">
+                <li class="list-group-item tr-list-item">Highlights</li>
             </ul>
         </div>
 
+        <!--Comments-->
         <div id="commentsPopover" class="hide">
             <div id="comments_div">
 
@@ -357,7 +359,7 @@
 
     </div>
     </div>
-
+    <!--Preview Translation-->
     <div id="preview_modal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -401,18 +403,18 @@
         });
 
         // POPOVER
-        $(function(){
-            $('[rel="popover"]').popover({
-                container: 'body',
-                html: true,
-                content: function () {
-                    var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
-                    return clone;
-                }
-            }).click(function(e) {
-                e.preventDefault();
-            });
-        });
+//        $(function(){
+//            $('[rel="popover"]').popover({
+//                container: 'body',
+//                html: true,
+//                content: function () {
+//                    var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+//                    return clone;
+//                }
+//            }).click(function(e) {
+//                e.preventDefault();
+//            });
+//        });
         // TOOLTIPS
         $(function () {
             $('[data-toggle="tooltip"]').tooltip()
@@ -478,6 +480,42 @@
             $('#preview_text').html($('#'+button.data('ta-id')).val());
         });
 
+        // Dictionary insert
+        var dictionary_values = {
+            '1': ['Highlights'],
+            '2': ['Sono disponibili biglietti per bambini?','Ci sono biglietti per bambini per il Gatwick Express?'],
+            '3': ['Informazioni importanti']
+        };
+        var tr_textareas = {
+            '1': 'ta4',
+            '2': 'ta4',
+            '3': 'ta4'
+        };
+        $(function () {
+            $('.tr-popover').popover({
+                container: 'body',
+                html: true,
+                content: function () {
+                    // make new content
+                    var tr_id = $(this).data('tr-id');
+                    tr_list = dictionary_values[tr_id];
+                    $('#tr_list').html('');
+                    for (translation_id in tr_list) {
+                        $('#tr_list').append('<li class="list-group-item tr-list-item" onclick="insert_tr(this, \''+tr_id+'\');">'+tr_list[translation_id]+'</li>')
+                    }
+                    var clone = $("#myPopover").clone(true).removeClass('hide');
+                    return clone;
+                }
+            })
+        });
+        function insert_tr(tr_list_item, tr_id){
+            // get translation textarea id
+            var ta_id = tr_textareas[tr_id];
+            // append text
+            var txt_to_append = $(tr_list_item).text();
+            $('#'+ ta_id).val($('#'+ta_id).val()+ '\n' + txt_to_append);
+            return true
+        };
     </script>
 </body>
 </html>
