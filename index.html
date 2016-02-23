@@ -13,6 +13,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap-maxlength.js"></script>
     <script src="js/bootstrap3-wysihtml5.all.min.js"></script>
+    <script src="js/jquery.selection.js"></script>
     <style>
         textarea{
             height: 100%;
@@ -23,6 +24,10 @@
         }
         .dictionary {
             padding-top: 10px;
+        }
+        #contextMenu {
+            position: absolute;
+            display:none;
         }
     </style>
 </head>
@@ -42,7 +47,7 @@
                 <ul class="nav navbar-nav">
                     <!--<li class="uinav" id="li_jobs"><a href="#jobs" onclick="select_page('jobs')">Jobs</a></li>-->
                     <li class="uinav active" id="li_translation"><a href="#translation" onclick="select_page('translation')">Translation</a></li>
-                    <li class="uinav" id="li_dictionary"><a href="#dictionary" onclick="select_page('dictionary')">Dictionary</a></li>
+                    <li class="uinav" id="li_dictionary"><a href="#dictionary" onclick="select_page('dictionary')">Common Phrases</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
@@ -129,15 +134,15 @@
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-8">
-                        <h4>Name
-                            <small><a href="http://www.londonticketsinternational.com/transportation/gatwick-express/"
+                        <h4>
+                            <a href="http://www.londonticketsinternational.com/transportation/gatwick-express/"
                                       onclick="window.open(this.href, 'mywin', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
-                                      class="btn btn-sm btn-default" target="_blank">Context</a></small>
+                                      target="_blank">Name</a>
                         </h4>
                     </div>
-                    <div class="col-md-4"><button data-comment-id="1" data-placement="bottom" class="btn btn-default comment" data-toggle="popover"><span class="glyphicon glyphicon-comment"></span> Comments</button></div>
+                    <div class="col-md-4"><button data-comment-id="1" data-placement="right" class="btn btn-default comment" data-toggle="popover"><span class="glyphicon glyphicon-comment"></span> Comments</button></div>
                 </div>
-                Gatwick Express
+                <div class="tr-text">Gatwick Express</div>
             </div>
             <div class="col-md-6">
                 <div class="btn-toolbar" role="toolbar" aria-label="...">
@@ -167,7 +172,7 @@
                     </div>
                     <div class="col-md-4"><button data-comment-id="2" data-placement="bottom" class="btn btn-default comment" data-toggle="popover"><span class="glyphicon glyphicon-comment"></span> Comments</button></div>
                 </div>
-                gatwick-express
+                <div class="tr-text">gatwick-express</div>
             </div>
             <div class="col-md-6">
                 <div class="btn-toolbar" role="toolbar" aria-label="...">
@@ -197,7 +202,7 @@
                     </div>
                     <div class="col-md-4"><button data-comment-id="3" data-placement="bottom" class="btn btn-default comment" data-toggle="popover"><span class="glyphicon glyphicon-comment"></span> Comments</button></div>
                 </div>
-                Travel to London City from Gatwick Airport with the Gatwick Express! Save time with prebooked tickets and jump directly on the train. The journey is only approx. 35 minutes.
+                <div class="tr-text">Travel to London City from Gatwick Airport with the Gatwick Express! Save time with prebooked tickets and jump directly on the train. The journey is only approx. 35 minutes.</div>
             </div>
             <div class="col-md-6">
                 <div class="btn-toolbar" role="toolbar" aria-label="...">
@@ -227,7 +232,7 @@
                     </div>
                     <div class="col-md-4"><button data-comment-id="4" data-placement="bottom" class="btn btn-default comment" data-toggle="popover"><span class="glyphicon glyphicon-comment"></span> Comments</button></div>
                 </div>
-
+                <div class="tr-text">
                 Jump on the Gatwick Express and get into London fast and easy. You can choose to get a return or one-way ticket between Gatwick Airport and Victoria Station in London with the Gatwick Express. The journey takes approx. 35 min. It's easy and comfortable!
                 <br />
                 From Victoria Station in London you can easily take the tube, a bus or grab a cab to your end-destination, such as Piccadilly Circus, Trafalgar Square, Oxford Circus, Covent Garden, Russel Square or Paddington.
@@ -262,6 +267,7 @@
                 <br />
                 Staff are available at the stations to help you, so please ask them if you have any questions.<br />
                 <br />
+                </div>
             </div>
             <div class="col-md-6">
                 <div class="btn-toolbar" role="toolbar" aria-label="...">
@@ -291,8 +297,9 @@
                     </div>
                     <div class="col-md-4"><button data-comment-id="5" data-placement="bottom" class="btn btn-default comment" data-toggle="popover"><span class="glyphicon glyphicon-comment"></span> Comments</button></div>
                 </div>
-
-                Travel from Gatwick Airport to London City with the Gatwick Express. Children under 5 travel for free. The journey only takes approx. 35 minutes!
+                <div class="tr-text">
+                    Travel from Gatwick Airport to London City with the Gatwick Express. Children under 5 travel for free. The journey only takes approx. 35 minutes!
+                </div>
             </div>
             <div class="col-md-6">
                 <div class="btn-toolbar" role="toolbar" aria-label="...">
@@ -353,10 +360,12 @@
             </div>
             <div>
                 <textarea class="form-control"></textarea>
-                <button id="comment_button" class="btn btn-sm btn-primary" onclick="send_comment(this);">Send</button>
+                <div class="btn-group">
+                    <button id="comment_button" class="btn btn-sm btn-primary" onclick="send_comment(this);">Send</button>
+                    <button type="button" class="btn btn-default btn-sm cancel" onclick="dismiss(this);">Close</button>
+                </div>
             </div>
         </div>
-
     </div>
     </div>
     <!--Preview Translation-->
@@ -373,6 +382,27 @@
             </div>
         </div>
     </div>
+
+    <div id="contextMenu" class="dropdown clearfix">
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display:block;position:static;margin-bottom:5px;">
+            <li><a tabindex="-1" href="#">Copy</a></li>
+            <li><a tabindex="-1" href="#">Add to Common Phrases</a></li>
+            <li><a tabindex="-1" href="#">Search in Google</a></li>
+        </ul>
+    </div>
+
+    <nav id="footer" class="navbar navbar-inverse navbar-fixed-bottom hide">
+        <div class="container">
+                <div class="row">
+                    <div class="col-md-4"><textarea rows="2" id="cp_orig_text"></textarea></div>
+                    <div class="col-md-4"><textarea rows="2" id="cp_tran_text"></textarea></div>
+                    <div class="col-md-4"><div class="btn-group">
+                        <button class="btn btn-primary btn-lg" onclick="$('#footer').addClass('hide');">Add to Common Phrases</button>
+                        <button class="btn btn-default btn-lg" onclick="$('#footer').addClass('hide');">Close</button>
+                    </div></div>
+                </div>
+        </div>
+    </nav>
 
     <script>
 
@@ -418,7 +448,7 @@
         // TOOLTIPS
         $(function () {
             $('[data-toggle="tooltip"]').tooltip()
-        })
+        });
         // RED FLAGS
         var red_flags = 0;
         function toggle_red_flag(button) {
@@ -465,14 +495,16 @@
         function send_comment(button) {
             var comment_id = $(button).data('comment-id');
             // find a sibling textarea
-            var textarea = $(button).prev();
+            var textarea = $(button).parent().prev();
             var comm_text = $(textarea).val();
             comments[comment_id].push(comm_text);
             $(textarea).val('');
             // add to div
             $(textarea).parent().prev().append(comm_text, '<hr />')
         }
-
+        function dismiss(button) {
+            $(button).parent().parent().parent().parent().parent().popover('hide');
+        }
         // PREVIEW
         $('#preview_modal').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget);
@@ -507,6 +539,7 @@
                     return clone;
                 }
             })
+
         });
         function insert_tr(tr_list_item, tr_id){
             // get translation textarea id
@@ -515,7 +548,30 @@
             var txt_to_append = $(tr_list_item).text();
             $('#'+ ta_id).val($('#'+ta_id).val()+ '\n' + txt_to_append);
             return true
-        };
+        }
+        // selecting
+        $(".tr-text").on("mouseup", function(e) {
+            // show modal with text
+            var text_selected = window.getSelection().toString();
+            $("#cp_orig_text").val(text_selected);
+            if (text_selected>'') {
+                $("#footer").removeClass("hide")
+            } else {
+                $("#footer").addClass("hide")
+            }
+        });
+
+        $(".translate").select(function(e) {
+            // show modal with text
+            var text_selected = $(this).selection();
+            $("#cp_tran_text").val(text_selected);
+            if (text_selected>'') {
+                $("#footer").removeClass("hide")
+            } else {
+                $("#footer").addClass("hide")
+            }
+        });
+
     </script>
 </body>
 </html>
