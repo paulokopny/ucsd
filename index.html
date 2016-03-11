@@ -97,6 +97,9 @@
             left:-20px
         }
 
+        .btn-comment{
+            float: right;
+        }
     </style>
 </head>
 <body>
@@ -123,7 +126,7 @@
                                             <span class="block">Gatwick Express</span>
                                             <span class="block">
                                                 <span class="glyphicon glyphicon-ok"></span> 0&#47;5
-                                                <span class="glyphicon glyphicon-flag"></span> 0
+                                                <span class="glyphicon glyphicon-flag"></span> <span class="page1_flags">0</span>
                                                 <span class="glyphicon glyphicon-comment"></span> 1
                                             </span>
                                         </span>
@@ -580,7 +583,7 @@
             <div id="pointer"></div>
             <div class="btn-group-vertical sidemenu" id="sidemenu-buttons">
                 <button class="btn btn-sm btn-default" onclick="show_sidemenu('sidemenu-comment')">Comment</button>
-                <button class="btn btn-sm btn-default" onclick="show_sidemenu('sidemenu-cp')">Add to CP</button>
+                <button class="btn btn-sm btn-default" onclick="show_footer();">Add to CP</button>
             </div>
             <div class="sidemenu hidden" id="sidemenu-comment">
                 <form role="form" style="width: 400px;">
@@ -591,33 +594,34 @@
                     </div>
                 </form>
             </div>
-            <div class="sidemenu hidden" id="sidemenu-cp">
-                <form role="form" style="width: 400px;">
-                    <label>Original text</label>
-                    <textarea class="form-control" id="cp_orig_text"></textarea>
-                    <label>Tanslation</label>
-                    <textarea class="form-control"></textarea>
-                    <div class="btn-group">
-                        <button id="comment_button_3" class="btn btn-sm btn-primary" onclick="close_sidemenu();">Save</button>
-                        <button type="button" class="btn btn-default btn-sm cancel" onclick="close_sidemenu();">Close</button>
-                    </div>
-                </form>
-            </div>
+            <!--<div class="sidemenu hidden" id="sidemenu-cp">-->
+                <!--<form role="form" style="width: 400px;">-->
+                    <!--<label>Original text</label>-->
+                    <!--<textarea class="form-control" id="cp_orig_text"></textarea>-->
+                    <!--<label>Tanslation</label>-->
+                    <!--<textarea class="form-control"></textarea>-->
+                    <!--<div class="btn-group">-->
+                        <!--<button id="comment_button_3" class="btn btn-sm btn-primary" onclick="close_sidemenu();">Save</button>-->
+                        <!--<button type="button" class="btn btn-default btn-sm cancel" onclick="close_sidemenu();">Close</button>-->
+                    <!--</div>-->
+                <!--</form>-->
+            <!--</div>-->
         </div>
     </div>
 
-    <!--<nav id="footer" class="navbar navbar-inverse navbar-fixed-bottom hide">-->
-        <!--<div class="container">-->
-                <!--<div class="row">-->
-                    <!--<div class="col-md-4"><textarea rows="2" id="cp_orig_text"></textarea></div>-->
-                    <!--<div class="col-md-4"><textarea rows="2" id="cp_tran_text"></textarea></div>-->
-                    <!--<div class="col-md-4"><div class="btn-group">-->
-                        <!--<button class="btn btn-primary btn-lg" onclick="$('#footer').addClass('hide');">Add to Common Phrases</button>-->
-                        <!--<button class="btn btn-default btn-lg" onclick="$('#footer').addClass('hide');">Close</button>-->
-                    <!--</div></div>-->
-                <!--</div>-->
-        <!--</div>-->
-    <!--</nav>-->
+    <nav id="footer" class="navbar navbar-default navbar-fixed-bottom hidden">
+        <div class="container">
+                <label>Add to Common Phrases</label>
+                <div class="row">
+                    <div class="col-md-5"><textarea rows="10" id="cp_orig_text"></textarea></div>
+                    <div class="col-md-5"><textarea rows="10" id="cp_tran_text"></textarea></div>
+                    <div class="col-md-2"><div class="btn-group btn-group-vertical">
+                        <button class="btn btn-primary" onclick="$('#footer').addClass('hidden');">Save</button>
+                        <button class="btn btn-default" onclick="$('#footer').addClass('hidden');">Close</button>
+                    </div></div>
+                </div>
+        </div>
+    </nav>
 
     <script>
 
@@ -676,9 +680,9 @@
             }
             if (red_flags>0) {
                 // set the flags count
-                $(".page1_flags").html(' ('+red_flags+')');
+                $(".page1_flags").html(red_flags);
             } else {
-                $(".page1_flags").html('');
+                $(".page1_flags").html('0');
             }
         }
         var comments = {
@@ -775,12 +779,13 @@
             console.log(oRect.left - bodyRect.left, oRect.top - bodyRect.top);
             var left_anchor = $('#left_anchor').offset().left;
 //            $("#cp_orig_text").val(text_selected);
-            if (text_selected>'') {
+            $('#cp_orig_text').val(text_selected);
+            if (text_selected>'' && $('#footer').hasClass('hidden')) {
                 $('#contextMenu').css('position', 'absolute');
                 $('#contextMenu').css('left', left_anchor + 15);
                 $('#contextMenu').css('top', oRect.top - bodyRect.top);
                 $('#contextMenu').removeClass('hidden');
-                $('#cp_orig_text').val(text_selected);
+//                $('#cp_orig_text').val(text_selected);
 //                $("#footer").removeClass("hide")
             } else {
                 close_sidemenu();
@@ -793,12 +798,12 @@
         $(".translate").select(function(e) {
             // show modal with text
             var text_selected = $(this).selection();
-            var s = window.getSelection()
-            var oRange = s.getRangeAt(0); //get the text range
-            var bodyRect = document.body.getBoundingClientRect();
-            var oRect = oRange.getBoundingClientRect();
+//            var s = window.getSelection()
+//            var oRange = s.getRangeAt(0); //get the text range
+//            var bodyRect = document.body.getBoundingClientRect();
+//            var oRect = oRange.getBoundingClientRect();
 //            console.log(oRect.left - bodyRect.left, oRect.top - bodyRect.top);
-//            $("#cp_tran_text").val(text_selected);
+            $("#cp_tran_text").val(text_selected);
 //            if (text_selected>'') {
 //                $("#footer").removeClass("hide")
 //            } else {
@@ -813,6 +818,11 @@
             $('#contextMenu').addClass('hidden');
             show_sidemenu('sidemenu-buttons');
             $('.btn-comment').removeClass('active');
+        };
+        function show_footer(){
+            $('#footer').removeClass('hidden');
+            close_sidemenu();
+            show_sidemenu('sidemenu-buttons');
         };
         $(".btn-comment").click(function(e){
             if (!$(this).hasClass('active')){
