@@ -793,19 +793,20 @@
             var oRange = s.getRangeAt(0); //get the text range
             var oRect = oRange.getBoundingClientRect();
             var bodyRect = document.body.getBoundingClientRect();
-            console.log(oRect.left - bodyRect.left, oRect.top - bodyRect.top);
+//            console.log(oRect.left - bodyRect.left, oRect.top - bodyRect.top);
             var left_anchor = $('#left_anchor').offset().left;
+            $('#contextMenu').css('left', left_anchor + 15);
+            $('#contextMenu').css('top', oRect.top - bodyRect.top);
 //            $("#cp_orig_text").val(text_selected);
             $('#cp_orig_text').val(text_selected);
             if (text_selected>'' && $('#footer').hasClass('hidden')) {
                 $('#contextMenu').css('position', 'absolute');
-                $('#contextMenu').css('left', left_anchor + 15);
-                $('#contextMenu').css('top', oRect.top - bodyRect.top);
                 $('#contextMenu').removeClass('hidden');
 //                $('#cp_orig_text').val(text_selected);
 //                $("#footer").removeClass("hide")
             } else {
                 close_sidemenu();
+                $('#contextMenu').css('top', 0);
 //                $('#contextMenu').addClass('hidden');
 //                show_sidemenu('sidemenu-buttons');
 //                $("#footer").addClass("hide")
@@ -835,6 +836,7 @@
             $('#contextMenu').addClass('hidden');
             show_sidemenu('sidemenu-buttons');
             $('.btn-comment').removeClass('active');
+            $('#contextMenu').css('top', 0);
         };
         function show_footer(){
             $('#footer').removeClass('hidden');
@@ -842,13 +844,16 @@
             show_sidemenu('sidemenu-buttons');
         };
         $(".btn-comment").click(function(e){
+            console.log($('#contextMenu').css('top'));
             if (!$(this).hasClass('active')){
                 // trigger it
                 show_sidemenu('sidemenu-comment');
                 var left_anchor = $('#left_anchor').offset().left;
                 $('#contextMenu').css('position', 'absolute');
                 $('#contextMenu').css('left', left_anchor + 15);
-                $('#contextMenu').css('top', $(this).offset().top);
+                if ($('#contextMenu').css('top')=='0px'||$('#contextMenu').css('top')=='auto') {
+                    $('#contextMenu').css('top', $(this).offset().top);
+                }
                 $('#contextMenu').removeClass('hidden');
                 $(this).addClass('active');
             } else {
