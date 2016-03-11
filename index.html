@@ -30,8 +30,8 @@
             padding-top: 10px;
         }
         #contextMenu {
-            position: absolute;
-            display:none;
+            /*position: fixed;*/
+            /*display:none;*/
         }
         ul.dropdown-cart{
             min-width:250px;
@@ -72,6 +72,31 @@
         ul.dropdown-cart li .item-right button{
             margin-top:14px;
         }
+
+        .span3 {
+            background:white;
+            border-style: solid;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            /*width:250px;*/
+            /*height:100px;*/
+            display: block;
+            position: relative;
+        }
+
+        #pointer{
+            border-right:solid 20px black;
+            /*  border-left: solid 5px transparent;   */
+            border-top: solid 10px transparent;
+            border-bottom: solid 10px transparent;
+            position:absolute;
+            width: 0;
+            height: 0;
+            top: 10px;
+            left:-20px
+        }
+
     </style>
 </head>
 <body>
@@ -87,7 +112,6 @@
                 <!--<a href="#" class="navbar-brand">Translation tool</a>-->
             </div>
             <div class="collapse navbar-collapse" id="navbar">
-
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Translation<span class="caret"></span></a>
@@ -304,7 +328,6 @@
     </div>
 
     <div class="container uipage" id="translation">
-
         <div class="row">
             <div class="col-md-6">
                 <div class="row">
@@ -319,6 +342,7 @@
                     <div class="col-md-4"><button data-comment-id="1" data-placement="right" class="btn btn-default comment" data-toggle="popover"><span class="glyphicon glyphicon-comment"></span> Comments</button></div>
                 </div>
                 <div class="tr-text">Gatwick Express</div>
+                <div class="pull-right"><span id="left_anchor"></span></div>
             </div>
             <div class="col-md-6">
                 <div class="btn-toolbar" role="toolbar" aria-label="...">
@@ -541,12 +565,35 @@
         </div>
     </div>
 
-    <div id="contextMenu" class="dropdown clearfix">
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display:block;position:static;margin-bottom:5px;">
-            <li><a tabindex="-1" href="#">Copy</a></li>
-            <li><a tabindex="-1" href="#">Add to Common Phrases</a></li>
-            <li><a tabindex="-1" href="#">Search in Google</a></li>
-        </ul>
+    <div id="contextMenu" class="clearfix hidden">
+        <div class="span3">
+            <div id="pointer"></div>
+            <div class="btn-group-vertical sidemenu" id="sidemenu-buttons">
+                <button class="btn btn-sm btn-default" onclick="show_sidemenu('sidemenu-comment')">Comment</button>
+                <button class="btn btn-sm btn-default" onclick="show_sidemenu('sidemenu-cp')">Add to CP</button>
+            </div>
+            <div class="sidemenu hidden" id="sidemenu-comment">
+                <form role="form">
+                    <textarea class="form-control"></textarea>
+                    <div class="btn-group">
+                        <button id="comment_button_2" class="btn btn-sm btn-primary" onclick="send_comment(this);">Send</button>
+                        <button type="button" class="btn btn-default btn-sm cancel" onclick="close_sidemenu()">Close</button>
+                    </div>
+                </form>
+            </div>
+            <div class="sidemenu hidden" id="sidemenu-cp">
+                <form role="form">
+                    <label>Original text</label>
+                    <textarea class="form-control"></textarea>
+                    <label>Tanslation</label>
+                    <textarea class="form-control"></textarea>
+                    <div class="btn-group">
+                        <button id="comment_button_3" class="btn btn-sm btn-primary" onclick="send_comment(this);">Save</button>
+                        <button type="button" class="btn btn-default btn-sm cancel" onclick="close_sidemenu();">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 
     <nav id="footer" class="navbar navbar-inverse navbar-fixed-bottom hide">
@@ -711,25 +758,49 @@
         $(".tr-text").on("mouseup", function(e) {
             // show modal with text
             var text_selected = window.getSelection().toString();
-            $("#cp_orig_text").val(text_selected);
+            var s = window.getSelection()
+            var oRange = s.getRangeAt(0); //get the text range
+            var oRect = oRange.getBoundingClientRect();
+            var bodyRect = document.body.getBoundingClientRect();
+            console.log(oRect.left - bodyRect.left, oRect.top - bodyRect.top);
+            var left_anchor = $('#left_anchor').offset().left;
+//            $("#cp_orig_text").val(text_selected);
             if (text_selected>'') {
-                $("#footer").removeClass("hide")
+                $('#contextMenu').css('position', 'absolute');
+                $('#contextMenu').css('left', left_anchor);
+                $('#contextMenu').css('top', oRect.top - bodyRect.top);
+                $('#contextMenu').removeClass('hidden');
+//                $("#footer").removeClass("hide")
             } else {
-                $("#footer").addClass("hide")
+                $('#contextMenu').addClass('hidden');
+                show_sidemenu('sidemenu-buttons');
+//                $("#footer").addClass("hide")
             }
         });
 
         $(".translate").select(function(e) {
             // show modal with text
             var text_selected = $(this).selection();
-            $("#cp_tran_text").val(text_selected);
-            if (text_selected>'') {
-                $("#footer").removeClass("hide")
-            } else {
-                $("#footer").addClass("hide")
-            }
+            var s = window.getSelection()
+            var oRange = s.getRangeAt(0); //get the text range
+            var bodyRect = document.body.getBoundingClientRect();
+            var oRect = oRange.getBoundingClientRect();
+            console.log(oRect.left - bodyRect.left, oRect.top - bodyRect.top);
+//            $("#cp_tran_text").val(text_selected);
+//            if (text_selected>'') {
+//                $("#footer").removeClass("hide")
+//            } else {
+//                $("#footer").addClass("hide")
+//            }
         });
-
+        function show_sidemenu(menu){
+            $('.sidemenu').addClass('hidden');
+            $('#' + menu).removeClass('hidden');
+        };
+        function close_sidemenu(){
+            $('#contextMenu').addClass('hidden');
+            show_sidemenu('sidemenu-buttons');
+        };
     </script>
 </body>
 </html>
