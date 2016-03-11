@@ -611,15 +611,32 @@
 
     <nav id="footer" class="navbar navbar-default navbar-fixed-bottom hidden">
         <div class="container">
-                <label>Add to Common Phrases</label>
-                <div class="row">
-                    <div class="col-md-5"><textarea rows="10" id="cp_orig_text"></textarea></div>
-                    <div class="col-md-5"><textarea rows="10" id="cp_tran_text"></textarea></div>
-                    <div class="col-md-2"><div class="btn-group btn-group-vertical">
-                        <button class="btn btn-primary" onclick="$('#footer').addClass('hidden');">Save</button>
-                        <button class="btn btn-default" onclick="$('#footer').addClass('hidden');">Close</button>
-                    </div></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Original text</label>
+                    <div class="btn-group pull-right" role="group">
+                        <button class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Bold">B</button>
+                        <button class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Italic">I</button>
+                    </div>
                 </div>
+                <div class="col-md-6">
+                    <label>Translation</label>
+                    <div class="btn-group pull-right" role="group">
+                        <button class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Bold">B</button>
+                        <button class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Italic">I</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6"><textarea rows="10" id="cp_orig_text"></textarea></div>
+                <div class="col-md-6"><textarea rows="10" id="cp_tran_text"></textarea></div>
+            </div>
+            <div class="row">
+                <div class="btn-group pull-right">
+                    <button class="btn btn-primary" onclick="$('#footer').addClass('hidden');">Save</button>
+                    <button class="btn btn-default" onclick="$('#footer').addClass('hidden');">Close</button>
+                </div>
+            </div>
         </div>
     </nav>
 
