@@ -339,7 +339,9 @@
                                target="_blank">Name</a>
                         </h4>
                     </div>
-                    <div class="col-md-4"><button data-comment-id="1" data-placement="right" class="btn btn-default comment" data-toggle="popover"><span class="glyphicon glyphicon-comment"></span> Comments</button></div>
+                    <div class="col-md-4 pull-right">
+                        <button class="btn btn-default btn-comment"><span class="glyphicon glyphicon-comment"></span> Comments</button>
+                    </div>
                 </div>
                 <div class="tr-text">Gatwick Express</div>
                 <div class="pull-right"><span id="left_anchor"></span></div>
@@ -372,7 +374,9 @@
                         </a>
                     </h4>
                     </div>
-                    <div class="col-md-4"><button data-comment-id="2" data-placement="right" class="btn btn-default comment" data-toggle="popover"><span class="glyphicon glyphicon-comment"></span> Comments</button></div>
+                    <div class="col-md-4 pull-right">
+                        <button class="btn btn-default btn-comment"><span class="glyphicon glyphicon-comment"></span> Comments</button>
+                    </div>
                 </div>
                 <div class="tr-text">gatwick-express</div>
             </div>
@@ -404,7 +408,9 @@
                         </a>
                     </h4>
                     </div>
-                    <div class="col-md-4"><button data-comment-id="3" data-placement="right" class="btn btn-default comment" data-toggle="popover"><span class="glyphicon glyphicon-comment"></span> Comments</button></div>
+                    <div class="col-md-4 pull-right">
+                        <button class="btn btn-default btn-comment"><span class="glyphicon glyphicon-comment"></span> Comments</button>
+                    </div>
                 </div>
                 <div class="tr-text">Travel to London City from Gatwick Airport with the Gatwick Espresso! Save time with prebooked tickets and jump directly on the train. The journey is only approx. 35 minutes.</div>
             </div>
@@ -436,7 +442,9 @@
                         </a>
                     </h4>
                     </div>
-                    <div class="col-md-4"><button data-comment-id="4" data-placement="right" class="btn btn-default comment" data-toggle="popover"><span class="glyphicon glyphicon-comment"></span> Comments</button></div>
+                    <div class="col-md-4 pull-right">
+                        <button class="btn btn-default btn-comment"><span class="glyphicon glyphicon-comment"></span> Comments</button>
+                    </div>
                 </div>
                 <div class="tr-text">
                 Jump on the Gatwick Express and get into London fast and easy. You can choose to get a return or one-way ticket between Gatwick Airport and Victoria Station in London with the Gatwick Express. The journey takes approx. 35 min. It's easy and comfortable!
@@ -503,7 +511,9 @@
                         </a>
                     </h4>
                     </div>
-                    <div class="col-md-4"><button data-comment-id="5" data-placement="right" class="btn btn-default comment" data-toggle="popover"><span class="glyphicon glyphicon-comment"></span> Comments</button></div>
+                    <div class="col-md-4 pull-right">
+                        <button class="btn btn-default btn-comment"><span class="glyphicon glyphicon-comment"></span> Comments</button>
+                    </div>
                 </div>
                 <div class="tr-text">
                     Travel from Gatwick Airport to London City with the Gatwick Express. Children under 5 travel for free. The journey only takes approx. 35 minutes!
@@ -573,22 +583,22 @@
                 <button class="btn btn-sm btn-default" onclick="show_sidemenu('sidemenu-cp')">Add to CP</button>
             </div>
             <div class="sidemenu hidden" id="sidemenu-comment">
-                <form role="form">
+                <form role="form" style="width: 400px;">
                     <textarea class="form-control"></textarea>
                     <div class="btn-group">
-                        <button id="comment_button_2" class="btn btn-sm btn-primary" onclick="send_comment(this);">Send</button>
+                        <button id="comment_button_2" class="btn btn-sm btn-primary" onclick="close_sidemenu();">Send</button>
                         <button type="button" class="btn btn-default btn-sm cancel" onclick="close_sidemenu()">Close</button>
                     </div>
                 </form>
             </div>
             <div class="sidemenu hidden" id="sidemenu-cp">
-                <form role="form">
+                <form role="form" style="width: 400px;">
                     <label>Original text</label>
-                    <textarea class="form-control"></textarea>
+                    <textarea class="form-control" id="cp_orig_text"></textarea>
                     <label>Tanslation</label>
                     <textarea class="form-control"></textarea>
                     <div class="btn-group">
-                        <button id="comment_button_3" class="btn btn-sm btn-primary" onclick="send_comment(this);">Save</button>
+                        <button id="comment_button_3" class="btn btn-sm btn-primary" onclick="close_sidemenu();">Save</button>
                         <button type="button" class="btn btn-default btn-sm cancel" onclick="close_sidemenu();">Close</button>
                     </div>
                 </form>
@@ -596,18 +606,18 @@
         </div>
     </div>
 
-    <nav id="footer" class="navbar navbar-inverse navbar-fixed-bottom hide">
-        <div class="container">
-                <div class="row">
-                    <div class="col-md-4"><textarea rows="2" id="cp_orig_text"></textarea></div>
-                    <div class="col-md-4"><textarea rows="2" id="cp_tran_text"></textarea></div>
-                    <div class="col-md-4"><div class="btn-group">
-                        <button class="btn btn-primary btn-lg" onclick="$('#footer').addClass('hide');">Add to Common Phrases</button>
-                        <button class="btn btn-default btn-lg" onclick="$('#footer').addClass('hide');">Close</button>
-                    </div></div>
-                </div>
-        </div>
-    </nav>
+    <!--<nav id="footer" class="navbar navbar-inverse navbar-fixed-bottom hide">-->
+        <!--<div class="container">-->
+                <!--<div class="row">-->
+                    <!--<div class="col-md-4"><textarea rows="2" id="cp_orig_text"></textarea></div>-->
+                    <!--<div class="col-md-4"><textarea rows="2" id="cp_tran_text"></textarea></div>-->
+                    <!--<div class="col-md-4"><div class="btn-group">-->
+                        <!--<button class="btn btn-primary btn-lg" onclick="$('#footer').addClass('hide');">Add to Common Phrases</button>-->
+                        <!--<button class="btn btn-default btn-lg" onclick="$('#footer').addClass('hide');">Close</button>-->
+                    <!--</div></div>-->
+                <!--</div>-->
+        <!--</div>-->
+    <!--</nav>-->
 
     <script>
 
@@ -767,9 +777,10 @@
 //            $("#cp_orig_text").val(text_selected);
             if (text_selected>'') {
                 $('#contextMenu').css('position', 'absolute');
-                $('#contextMenu').css('left', left_anchor);
+                $('#contextMenu').css('left', left_anchor + 15);
                 $('#contextMenu').css('top', oRect.top - bodyRect.top);
                 $('#contextMenu').removeClass('hidden');
+                $('#cp_orig_text').val(text_selected);
 //                $("#footer").removeClass("hide")
             } else {
                 $('#contextMenu').addClass('hidden');
@@ -785,7 +796,7 @@
             var oRange = s.getRangeAt(0); //get the text range
             var bodyRect = document.body.getBoundingClientRect();
             var oRect = oRange.getBoundingClientRect();
-            console.log(oRect.left - bodyRect.left, oRect.top - bodyRect.top);
+//            console.log(oRect.left - bodyRect.left, oRect.top - bodyRect.top);
 //            $("#cp_tran_text").val(text_selected);
 //            if (text_selected>'') {
 //                $("#footer").removeClass("hide")
@@ -800,7 +811,24 @@
         function close_sidemenu(){
             $('#contextMenu').addClass('hidden');
             show_sidemenu('sidemenu-buttons');
+            $('.btn-comment').removeClass('active');
         };
+        $(".btn-comment").click(function(e){
+            if (!$(this).hasClass('active')){
+                // trigger it
+                show_sidemenu('sidemenu-comment');
+                var left_anchor = $('#left_anchor').offset().left;
+                $('#contextMenu').css('position', 'absolute');
+                $('#contextMenu').css('left', left_anchor + 15);
+                $('#contextMenu').css('top', $(this).offset().top);
+                $('#contextMenu').removeClass('hidden');
+                $(this).addClass('active');
+            } else {
+                // hide it
+                close_sidemenu();
+                show_sidemenu('sidemenu-buttons');
+            }
+        });
     </script>
 </body>
 </html>
