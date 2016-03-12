@@ -105,7 +105,7 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top" style="z-index: 10000">
         <div class="container">
             <div class="navbar-header">
                 <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
@@ -278,7 +278,7 @@
         <!--<h3>Jobs list</h3>-->
     <!--</div>-->
 
-    <div class="container uipage hidden" id="dictionary">
+    <div class="uipage hidden" id="dictionary" style="z-index: 10000; background-color: white;"><div class="container">
         <h3>Dictionary</h3>
         <div class="input-group">
             <input type="text" class="form-control" placeholder="Search for...">
@@ -335,7 +335,7 @@
             </div>
         </div>
 
-    </div>
+    </div></div>
 
     <div class="container uipage" id="translation">
 
@@ -712,6 +712,11 @@
             $('#li_'+page).addClass('active');
             $('.uipage').addClass('hidden');
             $('#'+page).removeClass('hidden');
+            if (page=='dictionary'){
+                $(".bootstrap-maxlength").addClass('hidden');
+            } else {
+                $(".bootstrap-maxlength").removeClass('hidden');
+            }
             return false;
         }
 
