@@ -107,6 +107,9 @@
         .btn-group-right{
             float: right;
         }
+        .comment-span{
+            background-color: yellow;
+        }
     </style>
 </head>
 <body>
@@ -502,7 +505,7 @@
                     </div>
                 </div>
                 <div class="tr-text">
-                Jump on the Gatwick Express and get into London fast and easy. You can choose to get a return or one-way ticket between Gatwick Airport and Victoria Station in London with the Gatwick Express. The journey takes approx. 35 min. It's easy and comfortable!
+                <span class="comment-span" data-commentid="1">Jump on the Gatwick Express and get into London fast and easy.</span> You can choose to get a return or one-way ticket between Gatwick Airport and Victoria Station in London with the Gatwick Express. The journey takes approx. 35 min. It's easy and comfortable!
                 <br />
                 From Victoria Station in London you can easily take the tube, a bus or grab a cab to your end-destination, such as Piccadilly Circus, Trafalgar Square, Oxford Circus, Covent Garden, Russel Square or Paddington.
                 <br />
@@ -528,7 +531,7 @@
                 Important information:<br />
                 - Please note: It is your responsibility to check the train timetable before your journey, especially the train times to and from the airport for flights that arrive or depart very early in the morning or late at night, or in case there is a limited service due to maintenance work, etc.<br />
                 - We are not able to refund (either partly or in full) for tickets that cannot be used if the train timetable does not fit in with your scheduled flight arrival or departure time. If trains are cancelled due to maintenance work etc. then there will always be a replacement bus service offered.<br />
-                - On bank holidays the Gatwick Express will not run as frequently as normal, and on December 25 the Gatwick Express doesn't run.<br />
+                - <span class="comment-span" data-commentid="2">On bank holidays the Gatwick Express will not run as frequently as normal</span>, and on December 25 the Gatwick Express doesn't run.<br />
                 - If you like you can book tickets for an alternative Gatwick Airport Train HERE!<br />
                 <br />
                 Maintenance work until January 2016:<br />
@@ -632,8 +635,10 @@
         </div>
 
         <!--Comment bubble-->
-        <div >
-
+        <div id="comment-bubble" class="hidden">
+            <button class="btn btn-info btn-sm comment">
+                <span class="glyphicon glyphicon-comment"></span>
+            </button>
         </div>
 
         <!--Comments-->
@@ -682,18 +687,6 @@
                     </div>
                 </form>
             </div>
-            <!--<div class="sidemenu hidden" id="sidemenu-cp">-->
-                <!--<form role="form" style="width: 400px;">-->
-                    <!--<label>Original text</label>-->
-                    <!--<textarea class="form-control" id="cp_orig_text"></textarea>-->
-                    <!--<label>Tanslation</label>-->
-                    <!--<textarea class="form-control"></textarea>-->
-                    <!--<div class="btn-group">-->
-                        <!--<button id="comment_button_3" class="btn btn-sm btn-primary" onclick="close_sidemenu();">Save</button>-->
-                        <!--<button type="button" class="btn btn-default btn-sm cancel" onclick="close_sidemenu();">Close</button>-->
-                    <!--</div>-->
-                <!--</form>-->
-            <!--</div>-->
         </div>
     </div>
 
@@ -761,19 +754,6 @@
             placement: 'top-right'
         });
 
-        // POPOVER
-//        $(function(){
-//            $('[rel="popover"]').popover({
-//                container: 'body',
-//                html: true,
-//                content: function () {
-//                    var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
-//                    return clone;
-//                }
-//            }).click(function(e) {
-//                e.preventDefault();
-//            });
-//        });
         // TOOLTIPS
         $(function () {
             $('[data-toggle="tooltip"]').tooltip()
@@ -796,13 +776,32 @@
             }
         }
         var comments = {
-            '1': ['this headline can not be translated 1:1', '<b>PM</b>: ok, please translate  more freely'],
-            '2': [],
+            '1': ['this can not be translated 1:1', '<b>PM</b>: ok, please translate  more freely'],
+            '2': ['<b>Martin</b>: I dont really understand what is this', '<b>PM</b>: Ok. Kira, can you explain this text?'],
             '3': [],
             '4': [],
             '5': []
         };
         // Comments
+        $(function add_comment_bubbles(){
+            $(".comment-span").each(function(i, el){
+                // get coordinates of element
+                var left_anchor = $('#left_anchor').offset().left;
+                var bubble_top = $(el).offset().top;
+                // place comment bubble
+                var bubble = $('#comment-bubble').clone(true).appendTo('body');
+                console.log('placing ' + bubble_top + ' ' + left_anchor);
+                $(bubble).css('position', 'absolute');
+                $(bubble).css('top', bubble_top);
+                $(bubble).css('left', left_anchor);
+                $(bubble).removeClass('hidden');
+                // data
+                var comment_id = $(el).data('commentid');
+                console.log(comment_id);
+                $(bubble).children('button').data('comment-id', comment_id);
+            })
+        })
+
         $(function () {
             $('.comment').popover({
                 container: 'body',
@@ -961,7 +960,6 @@
     </script>
 
     <!--Comment examples-->
-    <!--Button layouts (flags)-->
     <!--General layout: preview-->
     <!--View Context button-->
     <!--Context preview-->
