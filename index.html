@@ -110,6 +110,9 @@
         .comment-span{
             background-color: yellow;
         }
+        .tr-list-item:hover{
+            background-color:#f3f3f3;
+        }
     </style>
 </head>
 <body>
@@ -656,7 +659,7 @@
 
         <!--Dictionary-->
         <div id="myPopover" class="hide">
-            Choose a translation:
+            Choose translation:
             <ul id="tr_list" class="list-group">
                 <li class="list-group-item tr-list-item">Highlights</li>
             </ul>
@@ -903,6 +906,7 @@
             // append text
             var txt_to_append = $(tr_list_item).text();
             $('#'+ ta_id).val($('#'+ta_id).val()+ '\n' + txt_to_append);
+            $('.tr-popover').popover('hide');
             return true
         }
         // selecting
@@ -987,9 +991,6 @@
         })
     </script>
 
-    <!--General layout: preview-->
-    <!--View Context button-->
-    <!--Context preview-->
     <!--Add button for select translation-->
 
 </body>
