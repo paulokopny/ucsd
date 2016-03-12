@@ -42,6 +42,11 @@
             display:block;
             padding:3px 10px;
             margin: 3px 0;
+            border-bottom: solid;
+            border-bottom-width: 1px;
+        }
+        ul.dropdown-cart li .active{
+            background-color: #f9f9f9;
         }
         ul.dropdown-cart li .item:hover{
             background-color:#f3f3f3;
@@ -124,7 +129,7 @@
                             <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="caret"></span></button>
                             <ul class="dropdown-menu dropdown-cart" role="menu">
                                 <li>
-                                    <span class="item">
+                                    <span class="item active">
                                         <span class="item-left">
                                             <span class="item-info" onclick="select_page('translation')">
                                                 <span class="block">Gatwick Express</span>
@@ -387,11 +392,13 @@
                         <button class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Bold">B</button>
                         <button class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Italic">I</button>
                     </div>
-                    <div class="btn-group" role="group">
-                        <button class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Mark as not finished" onclick="toggle_red_flag(this);"><span class="glyphicon glyphicon-flag"></span></button>
-                    </div>
-                    <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-default" data-toggle="modal" data-ta-id="ta1" data-target="#preview_modal">Preview</button>
+                    <div class="pull-right">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-ta-id="ta1" data-target="#preview_modal">Preview</button>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <button class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Mark as not finished" onclick="toggle_red_flag(this);"><span class="glyphicon glyphicon-flag"></span></button>
+                        </div>
                     </div>
                 </div>
                 <textarea id="ta1" class="form-control translate" maxlength="60"></textarea>
@@ -424,11 +431,13 @@
                         <button class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Bold">B</button>
                         <button class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Italic">I</button>
                     </div>
-                    <div class="btn-group" role="group">
-                        <button class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Mark as not finished" onclick="toggle_red_flag(this);"><span class="glyphicon glyphicon-flag"></span></button>
-                    </div>
-                    <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-default" data-toggle="modal" data-ta-id="ta2" data-target="#preview_modal">Preview</button>
+                    <div class="pull-right">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-ta-id="ta2" data-target="#preview_modal">Preview</button>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <button class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Mark as not finished" onclick="toggle_red_flag(this);"><span class="glyphicon glyphicon-flag"></span></button>
+                        </div>
                     </div>
                 </div>
                 <textarea id="ta2" class="form-control translate" maxlength="60"></textarea>
@@ -461,11 +470,13 @@
                         <button class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Bold">B</button>
                         <button class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Italic">I</button>
                     </div>
-                    <div class="btn-group" role="group">
-                        <button class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Mark as not finished" onclick="toggle_red_flag(this);"><span class="glyphicon glyphicon-flag"></span></button>
-                    </div>
-                    <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-default" data-toggle="modal" data-ta-id="ta3" data-target="#preview_modal">Preview</button>
+                    <div class="pull-right">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-ta-id="ta3" data-target="#preview_modal">Preview</button>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <button class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Mark as not finished" onclick="toggle_red_flag(this);"><span class="glyphicon glyphicon-flag"></span></button>
+                        </div>
                     </div>
                 </div>
                 <textarea id="ta3" class="form-control translate" maxlength="250"></textarea>
@@ -533,11 +544,13 @@
                         <button class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Bold">B</button>
                         <button class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Italic">I</button>
                     </div>
-                    <div class="btn-group" role="group">
-                        <button class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Mark as not finished" onclick="toggle_red_flag(this);"><span class="glyphicon glyphicon-flag"></span></button>
-                    </div>
-                    <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-default" data-toggle="modal" data-ta-id="ta4" data-target="#preview_modal">Preview</button>
+                    <div class="pull-right">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-ta-id="ta4" data-target="#preview_modal">Preview</button>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <button class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Mark as not finished" onclick="toggle_red_flag(this);"><span class="glyphicon glyphicon-flag"></span></button>
+                        </div>
                     </div>
                 </div>
                 <textarea id="ta4" class="form-control translate" maxlength="5000" rows="50"></textarea>
@@ -572,11 +585,14 @@
                         <button class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Bold">B</button>
                         <button class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Italic">I</button>
                     </div>
-                    <div class="btn-group" role="group">
-                        <button class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Mark as not finished" onclick="toggle_red_flag(this);"><span class="glyphicon glyphicon-flag"></span></button>
-                    </div>
-                    <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-default" data-toggle="modal" data-ta-id="ta5" data-target="#preview_modal">Preview</button>
+
+                    <div class="pull-right">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-ta-id="ta5" data-target="#preview_modal">Preview</button>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <button class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Mark as not finished" onclick="toggle_red_flag(this);"><span class="glyphicon glyphicon-flag"></span></button>
+                        </div>
                     </div>
                 </div>
                 <textarea id="ta5" class="form-control translate" maxlength="300" rows="3"></textarea>
@@ -605,12 +621,19 @@
         </div>
         <hr />
 
+
+
         <!--Dictionary-->
         <div id="myPopover" class="hide">
             Choose a translation:
             <ul id="tr_list" class="list-group">
                 <li class="list-group-item tr-list-item">Highlights</li>
             </ul>
+        </div>
+
+        <!--Comment bubble-->
+        <div >
+
         </div>
 
         <!--Comments-->
@@ -937,7 +960,6 @@
         })
     </script>
 
-    <!--NEXT button-->
     <!--Comment examples-->
     <!--Button layouts (flags)-->
     <!--General layout: preview-->
