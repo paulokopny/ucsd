@@ -707,7 +707,7 @@
             <div id="pointer"></div>
             <div class="btn-group-vertical sidemenu" id="sidemenu-buttons">
                 <button class="btn btn-sm btn-default" onclick="show_sidemenu('sidemenu-comment')">Comment</button>
-                <button class="btn btn-sm btn-default" onclick="show_footer();">Add to CP</button>
+                <button class="btn btn-sm btn-default" onclick="show_footer();" title="Add to Common Phrases">Add to CP</button>
             </div>
             <div class="sidemenu hidden" id="sidemenu-comment">
                 <form role="form" style="width: 400px;">
@@ -722,6 +722,11 @@
     </div>
 
     <nav id="footer" class="navbar navbar-default navbar-fixed-bottom hidden">
+        <div class="pull-right">
+            <button class="btn btn-default btn-sm" title="Close" onclick="$('#footer').addClass('hidden');">
+                <span class="glyphicon glyphicon-remove"></span>
+            </button>
+        </div>
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
