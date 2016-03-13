@@ -235,41 +235,41 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="glyphicon glyphicon-bell"></span>Notifications<span class="caret"></span></a>
                         <ul class="dropdown-menu dropdown-cart" role="menu">
                             <li>
-                                <span class="item">
+                                <span class="item" style="width: 350px;">
                                     <span class="item-left">
                                         <span class="item-info">
-                                            <span class="block"><b>Pavel</b></span>
-                                            <span class="block">This sentence is too complex, I will break it down to several simble sentences in translation.</span>
+                                            <span class="block">New comment in <b>Harry Potter Tour</b></span>
+                                            <span class="block"><b>Pavel</b>: This sentence is too complex, I will break it down to several simble sentences in translation.</span>
                                         </span>
                                     </span>
                                 </span>
                             </li>
                             <li>
-                                <span class="item">
+                                <span class="item" style="width: 350px;">
                                     <span class="item-left">
                                         <span class="item-info">
-                                            <span class="block"><b>Project Manager</b></span>
-                                            <span class="block">Please use simple language</span>
+                                            <span class="block">New comment in <b>Harry Potter Tour</b></span>
+                                            <span class="block"><b>PM</b>: Please use simple language</span>
                                         </span>
                                     </span>
                                 </span>
                             </li>
                             <li>
-                                <span class="item">
+                                <span class="item" style="width: 350px;">
                                     <span class="item-left">
                                         <span class="item-info">
-                                            <span class="block"><b>Julia</b></span>
-                                            <span class="block">Yes, this is an error. We will fix it ASAP, please ignore in your translation.</span>
+                                            <span class="block">New comment in <b>London Eye</b></span>
+                                            <span class="block"><b>Julia</b>: Yes, this is an error. We will fix it ASAP, please ignore in your translation.</span>
                                         </span>
                                     </span>
                                 </span>
                             </li>
                             <li>
-                                <span class="item">
+                                <span class="item" style="width: 350px;">
                                     <span class="item-left">
                                         <span class="item-info">
-                                            <span class="block"><b>Pavel</b></span>
-                                            <span class="block">I guess, it is an error. Should I ignore it or translate it as is?</span>
+                                            <span class="block">New comment in <b>London Eye</b></span>
+                                            <span class="block"><b>Pavel</b>: I guess, it is an error. Should I ignore it or translate it as is?</span>
                                         </span>
                                     </span>
                                 </span>
@@ -289,7 +289,7 @@
     <!--</div>-->
 
     <div class="uipage hidden" id="dictionary" style="z-index: 10000; background-color: white;"><div class="container">
-        <h3>Dictionary</h3>
+        <h3>Common Phrases Dictionary</h3>
         <div class="input-group">
             <input type="text" class="form-control" placeholder="Search for...">
               <span class="input-group-btn">
@@ -761,8 +761,10 @@
             $('#'+page).removeClass('hidden');
             if (page=='dictionary'){
                 $(".bootstrap-maxlength").addClass('hidden');
+                $(".comment").addClass('hidden');
             } else {
                 $(".bootstrap-maxlength").removeClass('hidden');
+                $(".comment").removeClass('hidden');
             }
             return false;
         }
