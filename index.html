@@ -805,8 +805,8 @@
             }
         }
         var comments = {
-            '1': ['this can not be translated 1:1', '<b>PM</b>: ok, please translate  more freely'],
-            '2': ['<b>Martin</b>: I dont really understand what is this', '<b>PM</b>: Ok. Kira, can you explain this text?'],
+            '1': ['<b>Pavel</b> Day ago<br>this can not be translated 1:1', '<b>PM</b> Today at 12:03</br>ok, please translate  more freely'],
+            '2': ['<b>Martin</b> Today at 10:38<br />I dont really understand what is this', '<b>PM</b> Today at 10:39<br />Ok. We will fix this text and update it directly'],
             '3': [],
             '4': [],
             '5': []
@@ -994,8 +994,6 @@
         function focusOnElement(element_id) {
             $('#' + element_id)[0].scrollIntoView( {block: "start", behavior: "smooth"} );
         }
-
-        // comments layout (add name and the date)
 
     </script>
 
