@@ -113,6 +113,9 @@
         .tr-list-item:hover{
             background-color:#f3f3f3;
         }
+        .popover{
+            width: 239px;
+        }
     </style>
 </head>
 <body>
@@ -390,8 +393,8 @@
                                title="Open context"
                                onclick="window.open(this.href, 'mywin', 'left=20,top=20,width=500,toolbar=1,resizable=0'); return false;"
                                target="_blank">View Context</a>
-                            <button class="btn btn-default btn-cp btn-sm"><span class="glyphicon glyphicon-plus"></span> Common Phrases</button>
-                            <button class="btn btn-default btn-comment btn-sm"><span class="glyphicon glyphicon-plus"></span> Comment</button>
+                            <button class="btn btn-default btn-cp btn-sm" title="Add text to Common Phrases"><span class="glyphicon glyphicon-plus"></span> Common Phrases</button>
+                            <button class="btn btn-default btn-comment btn-sm" title="Add new comment"><span class="glyphicon glyphicon-plus"></span> Comment</button>
                         </div>
                     </div>
                 </div>
@@ -431,8 +434,8 @@
                                title="Open context"
                                onclick="window.open(this.href, 'mywin', 'left=20,top=20,width=500,toolbar=1,resizable=0'); return false;"
                                target="_blank">View Context</a>
-                            <button class="btn btn-default btn-cp btn-sm"><span class="glyphicon glyphicon-plus"></span> Common Phrases</button>
-                            <button class="btn btn-default btn-comment btn-sm"><span class="glyphicon glyphicon-plus"></span> Comment</button>
+                            <button class="btn btn-default btn-cp btn-sm" title="Add text to Common Phrases"><span class="glyphicon glyphicon-plus"></span> Common Phrases</button>
+                            <button class="btn btn-default btn-comment btn-sm" title="Add new comment"><span class="glyphicon glyphicon-plus"></span> Comment</button>
                         </div>
                     </div>
                 </div>
@@ -471,8 +474,8 @@
                                title="Open context"
                                onclick="window.open(this.href, 'mywin', 'left=20,top=20,width=500,toolbar=1,resizable=0'); return false;"
                                target="_blank">View Context</a>
-                            <button class="btn btn-default btn-cp btn-sm"><span class="glyphicon glyphicon-plus"></span> Common Phrases</button>
-                            <button class="btn btn-default btn-comment btn-sm"><span class="glyphicon glyphicon-plus"></span> Comment</button>
+                            <button class="btn btn-default btn-cp btn-sm" title="Add text to Common Phrases"><span class="glyphicon glyphicon-plus"></span> Common Phrases</button>
+                            <button class="btn btn-default btn-comment btn-sm" title="Add new comment"><span class="glyphicon glyphicon-plus"></span> Comment</button>
                         </div>
                     </div>
                 </div>
@@ -511,8 +514,8 @@
                                title="Open context"
                                onclick="window.open(this.href, 'mywin', 'left=20,top=20,width=500,toolbar=1,resizable=0'); return false;"
                                target="_blank">View Context</a>
-                            <button class="btn btn-default btn-cp btn-sm"><span class="glyphicon glyphicon-plus"></span> Common Phrases</button>
-                            <button class="btn btn-default btn-comment btn-sm"><span class="glyphicon glyphicon-plus"></span> Comment</button>
+                            <button class="btn btn-default btn-cp btn-sm" title="Add text to Common Phrases"><span class="glyphicon glyphicon-plus"></span> Common Phrases</button>
+                            <button class="btn btn-default btn-comment btn-sm" title="Add new comment"><span class="glyphicon glyphicon-plus"></span> Comment</button>
                         </div>
                     </div>
                 </div>
@@ -521,7 +524,7 @@
                 <br />
                 From Victoria Station in London you can easily take the tube, a bus or grab a cab to your end-destination, such as Piccadilly Circus, Trafalgar Square, Oxford Circus, Covent Garden, Russel Square or Paddington.
                 <br />
-                <mark><a rel="popover" data-toggle="popover" data-tr-id="1" style="text-decorations:none; color:inherit;" class="tr-popover">Highlights</a></mark>:<br />
+                <mark><a rel="popover" data-toggle="popover" data-tr-id="1" style="text-decorations:none; color:inherit;" class="tr-popover" tooltip-title="Translation available">Highlights</a></mark>:<br />
                 - Get your e-tickets directly into your mailbox within 2-3 days<br />
                 - Skip the line by the ticket machine at the station<br />
                 - The tickets can be used on any given day within a month<br />
@@ -586,8 +589,8 @@
                                title="Open context"
                                onclick="window.open(this.href, 'mywin', 'left=20,top=20,width=500,toolbar=1,resizable=0'); return false;"
                                target="_blank">View Context</a>
-                            <button class="btn btn-default btn-cp btn-sm"><span class="glyphicon glyphicon-plus"></span> Common Phrases</button>
-                            <button class="btn btn-default btn-comment btn-sm"><span class="glyphicon glyphicon-plus"></span> Comment</button>
+                            <button class="btn btn-default btn-cp btn-sm" title="Add text to Common Phrases"><span class="glyphicon glyphicon-plus"></span> Common Phrases</button>
+                            <button class="btn btn-default btn-comment btn-sm" title="Add new comment"><span class="glyphicon glyphicon-plus"></span> Comment</button>
                         </div>
                     </div>
                 </div>
@@ -638,10 +641,11 @@
         <hr />
 
 
-
         <!--Dictionary-->
         <div id="myPopover" class="hide">
-            Choose translation:
+            <button class="btn btn-sm btn-default pull-right" onclick="$(this).parent().parent().parent().popover('hide');"><span class="glyphicon glyphicon-remove"></span></button>
+            <br/>
+            Choose translation
             <ul id="tr_list" class="list-group">
                 <li class="list-group-item tr-list-item">Highlights</li>
             </ul>
@@ -693,6 +697,7 @@
             </div>
             <div class="sidemenu hidden" id="sidemenu-comment">
                 <form role="form" style="width: 400px;">
+                    <label> Select the text and add new comment</label>
                     <textarea class="form-control"></textarea>
                     <div class="btn-group">
                         <button id="comment_button_2" class="btn btn-sm btn-primary" onclick="close_sidemenu();">Send</button>
@@ -778,6 +783,7 @@
         $(function () {
             $('[data-toggle="tooltip"]').tooltip()
         });
+
         // RED FLAGS
         var red_flags = 0;
         function toggle_red_flag(button) {
@@ -886,8 +892,11 @@
                     var clone = $("#myPopover").clone(true).removeClass('hide');
                     return clone;
                 }
-            })
-
+            });
+            $('.tr-popover').tooltip({
+                placement : 'top',
+                title : "Translation available"//$(this).attr("tooltip-title")
+            });
         });
         function insert_tr(tr_list_item, tr_id){
             // get translation textarea id
@@ -983,15 +992,6 @@
             $('#' + element_id)[0].scrollIntoView( {block: "start", behavior: "smooth"} );
         }
 
-        // title to new comment
-        // hover over the selected common phrase
-        // close button to select translation
-        // header with details 0/5 done 0 comments 1
-        // notifications: new comment in Harry Potter (long text) // and delete the comment text
-        // buttons Add to CP -> Common Phrase
-        // Add comment -> Comment
-        // plus sign to these buttons
-        // the name should not be a link
         // comments layout (add name and the date)
 
     </script>
